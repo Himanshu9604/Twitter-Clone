@@ -5,7 +5,7 @@
     width: 100%;
     align-items: center;
     padding-bottom: 0.5%;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(0, 0, 0);
     border-radius: 20px;
     margin-top: -4rem;
   }
@@ -17,7 +17,7 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 0%;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(0, 0, 0);
     border-radius: 20px;
   }
   .icon { 
@@ -35,15 +35,16 @@
     align-items: center !important;
     margin-bottom: 1rem !important;
     text-transform: none !important;
-    background-color: rgb(5, 5, 5) !important;
-    color: rgb(246, 246, 246) !important;
+    background-color: rgb(255, 255, 255) !important;
+    color: rgb(0, 0, 0) !important;
+    padding:0.5rem !important
   }
   .stepper {
     display: flex;
-   
+   color: white;
     gap: 2%;
     flex-direction: column;
-   width: 70%;
+   width: 55%;
     justify-content: center; 
     align-items: center;
      
@@ -55,29 +56,42 @@
     width: 70% !important;
     padding: 1px !important;
     margin-top: 0.5rem !important;
-    background-color: aliceblue !important;
+   
+    border-radius: 2px;
   }
   
   .card {
     margin: 10% 15%;
-    background-color: rgb(247, 247, 247);
+    background-color: rgb(4, 4, 4);
     border-radius: 20px;
   }
   
   h1 {
-    color: rgb(9, 9, 9);
+    color: rgb(255, 255, 255) !important;
     text-align: center;
   }
   
   h3 {
-    color: rgb(11, 11, 11);
+    color: rgb(255, 255, 255) !important;
     text-align: center;
   }
-  @media only screen and (min-width: 1100px) {
+  @media only screen and (min-width: 900px) {
     .card {
-        margin: 5% 30%;
-        background-color: rgb(247, 247, 247);
+        margin: 5% 32%;
+        background-color: rgb(10, 10, 10);
         border-radius: 20px;
+      }
+      .stepper {
+        display: flex;
+       color: white;
+        gap: 2%;
+        flex-direction: column;
+       width: 55%;
+        justify-content: center; 
+        align-items: center;
+         
+        
+         
       }
 
       .contain {
@@ -88,7 +102,7 @@
         justify-content: center;
         align-items: center;
         padding-bottom: 0%;
-        background-color: rgb(247, 247, 247);
+        background-color: rgb(0, 0, 0);
         border-radius: 20px;
       }
       .btn {
@@ -96,20 +110,25 @@
         border-radius: 20px !important;
         width: 50%;
         align-items: center !important;
-        margin-bottom: 1rem !important;
+       
         text-transform: none !important;
-        background-color: rgb(5, 5, 5) !important;
-        color: rgb(246, 246, 246) !important;
+        background-color: rgb(255, 255, 255) !important;
+        color: rgb(0, 0, 0) !important;
         
       }
       .input {
         width: 50% !important;
         padding: 1px !important;
-        margin-top: 0.5rem !important;
-        background-color: aliceblue !important;
+        
+       
       }
       h3{
-        margin-bottom: 1rem !important;
+       
+        color: rgb(255, 255, 255) !important;
+      }
+      h1 {
+        color: rgb(255, 255, 255) !important;
+        text-align: center;
       }
 
     }

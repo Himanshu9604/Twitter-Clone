@@ -12,6 +12,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 const Login = () => {
+  
 
   const dataa = [
     "","or",""
@@ -20,6 +21,7 @@ const Login = () => {
     email: "",
     password: "",
   };
+  const [success,setSuccess]=useState()
   const [login,setLogin]=useRecoilState(isLogin)
   const [errors, setErrors] = useState({});
   const [data, setData] = useState(
@@ -52,15 +54,25 @@ const Login = () => {
     if (user) {
       
       setIsuser("Login SuccesFully");
+      setSuccess(true)
       setTimeout(() => {
         Navigate("/home");
         setLogin(true)
       }, 1000);
     } else {
-      setIsuser("something went wrong");
+      setIsuser("Details not match");
+      setSuccess(false)
     }
 
     setFormValues(obj);
+  };
+
+  const successStyle = {
+    color: "green",
+  };
+  
+  const errorStyle = {
+    color: "red",
   };
 
   const validate = (validate) => {
@@ -77,11 +89,7 @@ const Login = () => {
 
     if (!password) {
       error.password = "Password is required !";
-    } else if (password.length < 6) {
-      error.password = "Password should be greater than 6";
-    } else if (password.length > 16) {
-      error.password = "password should be less than 16";
-    }
+    } 
 
     return error;
   };
@@ -99,7 +107,7 @@ const Login = () => {
       <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
         
             <div className={styles.icon}>
-                 <Link  to="/home">  <CloseIcon sx={{fontSize:45,color:"black" }}/></Link>
+                 <Link  to="/home">  <CloseIcon sx={{fontSize:30,color:"white" ,marginLeft:"0.5rem", }}/></Link>
             </div>
             <div className={styles.container}>
             <div>
@@ -109,10 +117,10 @@ const Login = () => {
                <h1>Sign in to Twitter</h1>
             <div className={styles.contain}>
                 <Button className={styles.btn}  variant="contained">
-                  <GoogleIcon/> Signin with Gmail
-                 </Button><br/>
+                  <GoogleIcon sx={{mr: 1}}/> Signin with Gmail
+                 </Button>
                 <Button className={styles.btn} variant="contained">
-                    <AppleIcon /> Sign in with Apple
+                    <AppleIcon sx={{mr: 1}}/> Sign in with Apple
                 </Button>
               </div>
               <Stepper className={ styles.stepper} >
@@ -122,13 +130,28 @@ const Login = () => {
                   </Stepper>
                   <form className={styles.contain} onSubmit={handlesubmit}>
                   <TextField className={styles.input}  type="email"
-                    name="email" id="outlined-basic" label="email" variant="outlined"  onChange={handleChange} value={formValues.email}/>
+                    name="email" id="filled-basic" label="Email" variant="filled"   sx={{
+                      color: "white",
+                     
+                      borderRadius: "5px",
+                      border: "1px solid white",
+                      "& label": { color: "white" },
+                      "& input": { color: "white" },
+                    }} onChange={handleChange} value={formValues.email}/>
                    <p>{errors.email}</p>
           
                   <TextField className={styles.input}  type="password"
-                      name="password" id="outlined-basic" label="password" variant="outlined"  onChange={handleChange} value={formValues.password}/>
+                      name="password" id="filled-basic"  label="Password" variant="filled"  sx={{
+                        color: "white",
+                       
+                        borderRadius: "5px",
+                        border: "1px solid white",
+                        "& label": { color: "white" },
+                        "& input": { color: "white" },
+                      }} onChange={handleChange} value={formValues.password}/>
                       <p>{errors.password}</p>
-                      <h2 className={styles.h2}>{isUser}</h2>
+                      <h2 className={styles.h2} style={success ? successStyle : errorStyle}>{isUser}</h2>
+
                   <Button className={styles.btn}  type="submit"  color='primary' variant="contained">LogIn</Button>
                   <Button className={styles.btn}  variant="contained">Forgot Password</Button><br/>
               </form> 

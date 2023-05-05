@@ -89,6 +89,8 @@ const SignUp = () => {
     } else {
       leapYear = false;
     }
+    const regexpass = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+    const regexemail = /^\S+@\S+\.\S+$/;
 
     const users = getData();
     if (
@@ -104,8 +106,11 @@ const SignUp = () => {
       data.year === "Year"
     ) {
       alert("Please Fill All the deatails!!");
-    } else if (data.password.length < 8) {
-      alert("Password Should contains 8 letter");
+    }  else if (!regexpass.test(data.password)) {
+      alert("Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!");
+    }
+    else if (!regexemail.test(data.email)) {
+      alert("It should be a valid email address");
     } else if (
       leapYear === false &&
       data.month === "February" &&
@@ -126,30 +131,55 @@ const SignUp = () => {
   }
 
   return (
-    <div >
+    <div className={styles.main}>
+    <div  >
     <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
       <div className={styles.container} >
       <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
           <h1>Sign Up to Twitter</h1>
         <form onSubmit={(e) => handleSubmit(e)} className={styles.container}>
           <TextField className={styles.input} 
-            id="outlined-basic"
+            id="filled-basic" 
             label="Name"
-            variant="outlined"
+            variant="filled" 
+            sx={{
+              color: "white",
+             
+              borderRadius: "5px",
+              border: "1px solid white",
+              "& label": { color: "white" },
+              "& input": { color: "white" },
+            }} 
             onChange={(e) => handleName(e)}
           />
           <TextField className={styles.input} 
-            id="outlined-basic"
+            id="filled-basic" 
             type="email"
             label="Email"
-            variant="outlined"
+            variant="filled" 
+            sx={{
+              color: "white",
+             
+              borderRadius: "5px",
+              border: "1px solid white",
+              "& label": { color: "white" },
+              "& input": { color: "white" },
+            }} 
             onChange={(e) => handleEmail(e)}
           />
           <TextField className={styles.input} 
             type="password"
-            id="outlined-basic"
+            id="filled-basic" 
             label="Password"
-            variant="outlined"
+            variant="filled" 
+            sx={{
+              color: "white",
+             
+              borderRadius: "5px",
+              border: "1px solid white",
+              "& label": { color: "white" },
+              "& input": { color: "white" },
+            }} 
             onChange={(e) => handlePassword(e)}
           />
           <div className={styles.Calender}>
@@ -187,6 +217,7 @@ const SignUp = () => {
         </h3>
       </div>
       </Box>
+    </div>
     </div>
   );
 };
