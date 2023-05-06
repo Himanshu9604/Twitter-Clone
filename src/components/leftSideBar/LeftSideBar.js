@@ -14,7 +14,7 @@ import { Box, Button, Dialog, Popover, useMediaQuery } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import { Avatar } from "antd";
 import { isLogin } from "../../pages/Atom";
-import {tweeData} from "./tweetData"
+import {  loggedUser, tweeData } from "../leftSideBar/tweetData"
 import { useRecoilState, useSetRecoilState } from "recoil";
 import React, {  useState } from "react";
 import { bindPopover, bindTrigger } from "material-ui-popup-state";
@@ -30,7 +30,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const LeftSideBar = () => {
   const isViewportBelow700 = useMediaQuery('(max-width:700px)');
-
+  const [name, setName] = useRecoilState(loggedUser)
   const setisLogin = useSetRecoilState(isLogin);
   
   const [open, setOpen] = React.useState(false);
@@ -288,7 +288,7 @@ const LeftSideBar = () => {
                   />
                   <div>
                   <span style={{ display: "block" }}></span>
-                    <span style={{ fontSize: "20px" }}>@Darshan4943</span>
+                    <span style={{ fontSize: "20px" }}>@{name}</span>
                   </div>
                 </div>
                 <MoreHorizIcon />
@@ -369,19 +369,21 @@ function Head() {
       reader.readAsDataURL(file);
     }
   };
-console.log(image)
-  function handleClick() {
+
+  const handleClick =(event)=> {
+    event.preventDefault()
     
-    if(text){
     let newTweet = {
-      content: text,
+      text: text,
       image: image,
+      time: new Date().toLocaleString(),
     };
-    Object.preventExtensions(newTweet);
+   
     
     setTweet([newTweet, ...tweet]);
-    console.log(image,"abc")
-  }
+    setText("")
+    setImage(null)
+  
   }
   return (
     <>
@@ -456,7 +458,7 @@ console.log(image)
             <input
               id="fileInput"
               type="file"
-              value={image}
+              
               accept="image/*"
               style={{ display: "none" }}
               onChange={handleImageChange}

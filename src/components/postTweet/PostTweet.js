@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./PostTweet.module.css";
 import { Avatar, Button } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -13,19 +13,20 @@ import {  AiOutlineAreaChart } from "react-icons/ai";
 import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { FiDownload } from "react-icons/fi";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import {  tweeData } from "../leftSideBar/tweetData"
-import { useRecoilValue } from "recoil";
+import {  loggedUser, tweeData } from "../leftSideBar/tweetData"
+import { useRecoilState, useRecoilValue } from "recoil";
 
 export default function PostTweet() {
-  const twee = useRecoilValue(tweeData);
+  // const tweet = useRecoilValue(tweeData);
   const [likeCount, setLikeCount] = useState(0);
   const [commentCount, setCommentCount] = useState(0);
   const [likeColor, setLikeColor] = useState("black");
   const [retweetColor, setRetweetColor] = useState("");
   const [tweetText, setTweetText] = useState("");
   const [tweetImage, setTweetImage] = useState(null);
-  const [tweet, setTweets] = useState([]);
-  let time = new Date().toLocaleString()
+  const [tweet, setTweets] = useRecoilState(tweeData);
+  const [name, setName] = useRecoilState(loggedUser)
+  
   function handleLikeCount() {
     if (likeColor === "black") {
       setLikeCount(1);
@@ -57,6 +58,9 @@ export default function PostTweet() {
     setTweetText("");
     setTweetImage(null);
   };
+  useEffect(() => {
+    setName(JSON.parse(localStorage.getItem("loggedUser")));
+  });
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -238,7 +242,7 @@ console.log(tweetImage)
                 className={styles.avatar}
                 src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
               />
-              <h3 className={styles.h3}>Darshan4943</h3>
+              <h3 className={styles.h3}>{name}</h3>
               <small className={styles.p} >{tweet.time}</small>
             </div>
             <p className={styles.text}>{tweet.text}</p>
@@ -271,7 +275,7 @@ console.log(tweetImage)
         ))}
       </div>
 
-        <div>
+        {/* <div>
         {twee.map((twee,inde) => (
            <div className={styles.postTweetMainCard} key={inde}>
            <div className={styles.teetInfo}>
@@ -280,7 +284,7 @@ console.log(tweetImage)
                className={styles.avatar}
                src="https://tse2.mm.bing.net/th?id=OIP.cphbUmdFsam1huiAHaOnGwHaFB&pid=Api&P=0"
              />
-             <h3 className={styles.h3}>Darshan4943</h3>
+             <h3 className={styles.h3}>{name}</h3>
              <p className={styles.p} >{time}</p>
            </div>
            <p className={styles.text}>{twee.content}</p>
@@ -311,7 +315,7 @@ console.log(tweetImage)
            </div>
          </div>
         ))}
-    </div>
+    </div> */}
     </div>
   );
 }

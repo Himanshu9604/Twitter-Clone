@@ -28,7 +28,10 @@ export default function Post() {
      {tweets.map((tweet)=>(
         <PostCard className={styles.postCards} key={tweet.in} tweet={tweet} />
      ))}
+     
+    
      </Box>
+     
     </div>
   );
   }

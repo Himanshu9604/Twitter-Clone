@@ -4,9 +4,10 @@ import { AiFillHeart, AiOutlineAreaChart } from "react-icons/ai";
 import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { Avatar } from "@mui/material";
 import { isLogin } from "../../pages/Atom";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import { Link } from "react-router-dom";
 import { FiDownload } from "react-icons/fi";
+import { usersAtom } from "../../recoil/UsersRecoil"
 
 
 export default function PostCard(props) {
@@ -16,7 +17,7 @@ export default function PostCard(props) {
   const [retweetCount, setRetweetCount] = useState(props.tweet.reTweetsCount);
   const [retweetColor, setRetweetColor] = useState("");
   const tweet = props.tweet;
-
+  const [users,setUsers] = useRecoilState(usersAtom)
   const handleLikeClick = () => {
     if (likeColor === "") {
       setLikeCount(likeCount + 1);
@@ -54,7 +55,7 @@ export default function PostCard(props) {
       !islogin ?
                 <div className={styles.postContainer}>
                 <div className={styles.userIndo}>
-                  <Avatar className={styles.avatar} src="https://i.pravatar.cc" />
+                  <Avatar className={styles.avatar} src={tweet.image} />
                     
                   <h3 className={styles.h3}>{tweet.tweetedBy.name}</h3>
                   <p className={styles.p}>{tweet.createdAt}</p>
@@ -85,7 +86,7 @@ export default function PostCard(props) {
           :
                 <div className={styles.postContainer}>
                   <div className={styles.userIndo}>
-                    <Avatar className={styles.avatar}  src="https://i.pravatar.cc" />
+                    <Avatar className={styles.avatar}  src={tweet.image} />
                       
                     <h3 className={styles.h3}>{tweet.tweetedBy.name}</h3>
                     <p className={styles.p}>{tweet.createdAt}</p>

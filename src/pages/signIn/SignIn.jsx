@@ -30,6 +30,7 @@ const Login = () => {
   const [isUser, setIsuser] = useState("");
   const [formValues, setFormValues] = useState(obj);
   const Navigate = useNavigate();
+ 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,6 +55,7 @@ const Login = () => {
     if (user) {
       
       setIsuser("Login SuccesFully");
+      localStorage.setItem("loggedUser", JSON.stringify(user.name));
       setSuccess(true)
       setTimeout(() => {
         Navigate("/home");
