@@ -12,7 +12,7 @@ function CreateAccount() {
       <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
         <div className={styles.container}>
         <TwitterIcon sx={{ color: "rgb(25 161 242)", fontSize: 45 }} />
-        <h1>Join Twitter today</h1>
+        <h1 className={styles.h1}>Join Twitter today</h1>
         
         <Button className={styles.btn} variant="contained">
           {" "}
@@ -42,13 +42,13 @@ function CreateAccount() {
             <br />
           
             </form>
-            <p>
+            <p className={styles.p}>
               By signing up, you agree to the <a href="#">Terms of Service</a>{" "}
               and <a href="#">Privacy Policy, </a>including Cookie Use.
             </p>
           
          
-            <h3>Have an account already? <Link  to="/">SignIn</Link></h3>
+            <h3 className={styles.h3}>Have an account already? <Link  to="/">SignIn</Link></h3>
          
         
       </div>

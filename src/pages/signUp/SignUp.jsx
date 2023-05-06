@@ -136,7 +136,7 @@ const SignUp = () => {
     <Box sx ={{ minwidth: 275, maxwidth: 680 }} className = {styles.card}>
       <div className={styles.container} >
       <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
-          <h1>Sign Up to Twitter</h1>
+          <h1 className={styles.h1}>Sign Up to Twitter</h1>
         <form onSubmit={(e) => handleSubmit(e)} className={styles.container}>
           <TextField className={styles.input} 
             id="filled-basic" 
@@ -211,7 +211,7 @@ const SignUp = () => {
         </form>
       
 
-      <h3>
+      <h3 className={styles.h3}>
         Already Have an Account? &nbsp;
         <Link  to="/">Sign In</Link>
         </h3>

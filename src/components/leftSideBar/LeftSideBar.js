@@ -369,17 +369,18 @@ function Head() {
       reader.readAsDataURL(file);
     }
   };
-
+console.log(image)
   function handleClick() {
+    
     if(text){
-    let tweetObj = {
+    let newTweet = {
       content: text,
-      images: image,
+      image: image,
     };
-    Object.preventExtensions(tweetObj);
+    Object.preventExtensions(newTweet);
     
-    setTweet([tweetObj, ...tweet]);
-    
+    setTweet([newTweet, ...tweet]);
+    console.log(image,"abc")
   }
   }
   return (

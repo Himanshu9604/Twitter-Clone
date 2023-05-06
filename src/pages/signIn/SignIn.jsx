@@ -114,7 +114,7 @@ const Login = () => {
                   <TwitterIcon sx={{ color: "rgb(25 161 242)",fontSize:45 }}/>
             </div>
             
-               <h1>Sign in to Twitter</h1>
+               <h1 className={styles.h1}>Sign in to Twitter</h1>
             <div className={styles.contain}>
                 <Button className={styles.btn}  variant="contained">
                   <GoogleIcon sx={{mr: 1}}/> Signin with Gmail
@@ -155,7 +155,7 @@ const Login = () => {
                   <Button className={styles.btn}  type="submit"  color='primary' variant="contained">LogIn</Button>
                   <Button className={styles.btn}  variant="contained">Forgot Password</Button><br/>
               </form> 
-                 <h3>
+                 <h3 className={styles.h3}>
                     Don't have an account? <Link  to="/joinus">Join Us</Link>
                 </h3>
                 

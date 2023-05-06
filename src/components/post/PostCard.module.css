@@ -18,7 +18,7 @@
 /* Styles for the user name */
 .h3 {
   font-size: 25px;
-  
+  color: black !important;
   margin-left: 1rem;
  
 }

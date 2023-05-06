@@ -133,10 +133,11 @@ button.active {
   display: flex;
 justify-content: start;
 margin-left: 5rem;
+color: black !important;
 }
 .h3 {
   font-size: 25px;
-  
+  color: black !important;
   margin-left: 1rem;
  
 }

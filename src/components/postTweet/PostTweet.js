@@ -24,7 +24,7 @@ export default function PostTweet() {
   const [retweetColor, setRetweetColor] = useState("");
   const [tweetText, setTweetText] = useState("");
   const [tweetImage, setTweetImage] = useState(null);
-  const [tweets, setTweets] = useState([]);
+  const [tweet, setTweets] = useState([]);
   let time = new Date().toLocaleString()
   function handleLikeCount() {
     if (likeColor === "black") {
@@ -53,7 +53,7 @@ export default function PostTweet() {
       image: tweetImage,
       time: new Date().toLocaleString(),
     };
-    setTweets([newTweet, ...tweets]);
+    setTweets([newTweet, ...tweet]);
     setTweetText("");
     setTweetImage(null);
   };
@@ -68,7 +68,7 @@ export default function PostTweet() {
       reader.readAsDataURL(file);
     }
   };
-
+console.log(tweetImage)
   return (
     <div>
       <div className={styles.header}>
@@ -230,7 +230,7 @@ export default function PostTweet() {
         </div>
       </div>
       <div className={styles.tweet}>
-        {tweets.map((tweet, index) => (
+        {tweet.map((tweet, index) => (
           <div  className={styles.postTweetMainCard} key={index}>
             <div className={styles.teetInfo}>
               <Avatar
