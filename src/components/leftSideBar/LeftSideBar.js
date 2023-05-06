@@ -235,7 +235,7 @@ const LeftSideBar = () => {
             borderRadius: "5rem",
             height: "3rem",
             fontSize: "28px",
-            width: "70%",
+            width: "100%",
             backgroundColor: "#42a5f5",
             marginLeft:"35%"
           }}
@@ -418,21 +418,22 @@ function Head() {
             onChange={(event) => setText(event.target.value)}
           />
         </div>
-        <div className={styles.button}>
+        <div >
           <Button
             variant="outlined"
             size="small"
             sx={{
               height: "18px",
-              width: "30%",
+              width: "60%",
               borderRadius: "15px",
               transformStyle: "none",
               textTransform: "none",
               border: "none",
-              margin: "0px",
+              
+              
             }}
           >
-            <PublicIcon  className={styles.everyone}sx={{ height: "15px" }} />
+            <PublicIcon  className={styles.everyone} />
             Everyone can reply
           </Button>
         </div>

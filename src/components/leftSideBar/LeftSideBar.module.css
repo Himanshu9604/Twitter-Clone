@@ -29,12 +29,14 @@
     /* padding: 0px; */
   }
   .everyone{
-    margin-left: 2rem;
-    width: 100%;
+    margin-left: 1rem;
+   
   }
   .tweetInput{
-    font-size: 24px;
-  margin-left: 4rem;
+    
+  margin-left: 3rem;
+  
+  
 }
  
   .options {

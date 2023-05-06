@@ -14,16 +14,16 @@
   background:#EFF3F4;
   border-radius: 50px;
   color: rgb(10, 10, 10);
-  padding: 0.5rem 3rem;
+  padding: 0.7rem 3rem;
   font-size: 1rem;
-  gap:1rem;
+  
   
 }
 
 .searchButton {
   position: absolute;
   top: 55%;
-  right: -3rem;
+  right: -4rem;
   transform: translateY(-50%);
   border: none;
   background: none;

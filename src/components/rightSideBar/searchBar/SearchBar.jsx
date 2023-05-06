@@ -13,7 +13,7 @@ const SearchBar = () => {
   };
 
   const handleInputFocus = () => {
-    setPlaceholder("Try searching for people, topics, or keywords");
+    setPlaceholder("Try searching for people");
   };
 
   const handleInputBlur = () => {

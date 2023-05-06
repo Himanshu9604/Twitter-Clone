@@ -14,7 +14,7 @@ import { BiMessageRounded, BiRepost } from "react-icons/bi";
 import { FiDownload } from "react-icons/fi";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import {  loggedUser, tweeData } from "../leftSideBar/tweetData"
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilState } from "recoil";
 
 export default function PostTweet() {
   // const tweet = useRecoilValue(tweeData);
@@ -92,6 +92,7 @@ console.log(tweetImage)
               transformStyle: "none",
               textTransform: "none",
               marginLeft: "28px",
+              marginTop:"2rem"
             }}
           >
             Everyone
