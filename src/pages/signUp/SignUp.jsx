@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 
 import styles from "./SignUp.module.css";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField,InputAdornment,IconButton } from "@mui/material";
 import { Days, Month, Year } from "../Data/Data"
 import { Link, useNavigate } from "react-router-dom";
 import TwitterIcon from '@mui/icons-material/Twitter';
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 
 const SignUp = () => {
  
   const navigate = useNavigate();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleToggleShowPassword = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
 
   const [data, setData] = useState({
     name: "",
@@ -89,7 +96,7 @@ const SignUp = () => {
     } else {
       leapYear = false;
     }
-    const regexpass = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+    const regexpass = /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,20}$/;
     const regexemail = /^\S+@\S+\.\S+$/;
 
     const users = getData();
@@ -168,19 +175,35 @@ const SignUp = () => {
             onChange={(e) => handleEmail(e)}
           />
           <TextField className={styles.input} 
-            type="password"
+             type={showPassword ? "text" : "password"}
             id="filled-basic" 
             label="Password"
             variant="filled" 
+            aria-label="toggle password visibility"
             sx={{
               color: "white",
-             
               borderRadius: "5px",
               border: "1px solid white",
               "& label": { color: "white" },
               "& input": { color: "white" },
             }} 
             onChange={(e) => handlePassword(e)}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    sx={{ color: "#fff" }}
+                    onClick={handleToggleShowPassword}
+                  >
+                    {showPassword ? (
+                      <VisibilityIcon />
+                    ) : (
+                      <VisibilityOffIcon />
+                    )}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
           <div className={styles.Calender}>
             <select onChange={(e) => handleMonth(e)}>
