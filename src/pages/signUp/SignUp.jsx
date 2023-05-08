@@ -96,7 +96,7 @@ const SignUp = () => {
     } else {
       leapYear = false;
     }
-    const regexpass = /^(?=.[A-Za-z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%*?&]{8,20}$/;
+    const regexpass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/
     const regexemail = /^\S+@\S+\.\S+$/;
 
     const users = getData();
