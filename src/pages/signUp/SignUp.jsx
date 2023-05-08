@@ -114,7 +114,7 @@ const SignUp = () => {
     ) {
       alert("Please Fill All the deatails!!");
     }  else if (!regexpass.test(data.password)) {
-      alert("Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!");
+      alert("Password should be 8-16 characters and include at least 1 capital letter,1 lowercase letter, 1 number and 1 special character!");
     }
     else if (!regexemail.test(data.email)) {
       alert("It should be a valid email address");
